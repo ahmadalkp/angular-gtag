@@ -27,13 +27,13 @@ export class EcommerceComponent implements OnInit {
   }
 
   input() {
-    const total = this.dataProperties.priceProduct * this.dataProperties.dataProperties.quantityProduct
+    const total = this.dataProperties.priceProduct * this.dataProperties.quantityProduct    
     this.analyticsManual.addProductEC('FlexiHealth00', 'Product Flexi Health', 'Product Flexi Health', 'Insurance Flexi Health',
-      'Product Insurance Flexi Health', this.dataProperties.premiAmmount, 1);
+      'Product Insurance Flexi Health', total, 1);
   }
 
   purchase() {
-    const total = this.dataProperties.priceProduct * this.dataProperties.dataProperties.quantityProduct
+    const total = this.dataProperties.priceProduct * this.dataProperties.quantityProduct
     this.analyticsManual.setActionEC('purchase', undefined, undefined, undefined, "BELI001",
       'ilovelife - Product Flexi Health', 0, total);
   }
