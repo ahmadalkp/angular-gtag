@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsGtag } from 'src/app/services/analyticsGtag';
+import { AnalyticsManual } from 'src/app/services/analyticsManual';
 import { AnalyticsUtils } from 'src/app/services/analyticsUtils';
 
 @Component({
@@ -13,7 +14,8 @@ export class EcommerceComponent implements OnInit {
 
   constructor(
     private analyticsUtils: AnalyticsUtils,
-    private analyticsGtag: AnalyticsGtag
+    private analyticsGtag: AnalyticsGtag,
+    private analyticsManual: AnalyticsManual
   ) { }
 
   ngOnInit(): void {
@@ -25,14 +27,32 @@ export class EcommerceComponent implements OnInit {
   }
 
   input() {
-    this.dataProperties.idProductNew = "BA" + (this.dataProperties.idProduct + 1);
-    // this.analyticsUtils.addProductEC(this.dataProperties.idProductNew, this.dataProperties.namaProduct, this.dataProperties.categoryProduct, this.dataProperties.brandProduct, this.dataProperties.variantProduct, this.dataProperties.priceProduct, this.dataProperties.quantityProduct)
-    this.analyticsGtag.addToCart();
+    const total = this.dataProperties.priceProduct * this.dataProperties.dataProperties.quantityProduct
+    this.analyticsManual.addProductEC('FlexiHealth00', 'Product Flexi Health', 'Product Flexi Health', 'Insurance Flexi Health',
+      'Product Insurance Flexi Health', this.dataProperties.premiAmmount, 1);
   }
 
-  checkout() {
-    // this.analyticsUtils.setActionEC("checkout", undefined, "checkout", 1);
-    // this.analyticsUtils.setActionEC("purchase",  undefined, undefined, undefined, this.dataProperties.idProductNew, "Beli Baju", this.dataProperties.quantityProduct, this.dataProperties.quantityProduct * this.dataProperties.priceProduct)
-    this.analyticsGtag.purchase();
+  purchase() {
+    const total = this.dataProperties.priceProduct * this.dataProperties.dataProperties.quantityProduct
+    this.analyticsManual.setActionEC('purchase', undefined, undefined, undefined, "BELI001",
+      'ilovelife - Product Flexi Health', 0, total);
   }
+
+  event() {
+    this.analyticsManual.eventAnalytics("click", "category", "label")
+  }
+
+  action(event: string) {
+    switch (event) {
+      case "click":
+        this.analyticsManual.setActionEC("click", "List Product");
+        break;
+      case "detail":
+        this.analyticsManual.setActionEC("detail", undefined);
+        break;
+      case "checkout":
+        this.analyticsManual.setActionEC("checkout", undefined, "Flexi Health", 1);
+    }
+  }
+
 }

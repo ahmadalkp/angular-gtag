@@ -6,6 +6,13 @@
         <input placeholder="harga" type="text" name="harga" id="" ngModel [(ngModel)]="dataProperties.priceProduct">
       </form>
       <button (click)="input()">input</button>
-      <button (click)="checkout()">beli</button>
+      <button (click)="purchase()">bayar</button>
+    </div>
+    <h1>TEST EVENTS</h1>
+    <div>
+      <button (click)="event()">event</button>
+      <button (click)="action('click')">action click</button>
+      <button (click)="action('detail')">action detail</button>
+      <button (click)="action('checkout')">action checkout</button>
     </div>
   </div>
