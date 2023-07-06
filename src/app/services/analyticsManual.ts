@@ -34,7 +34,7 @@ export class AnalyticsManual {
         });
     }
 
-    public setActionEC(action: string, list?: string, option?: string, step?: number, id?: string, affilation?: string, shipping?: number, revenue?: number) {
+    public  setActionEC(action: string, list?: string, option?: string, step?: number, id?: string, affilation?: string, shipping?: number, revenue?: number) {
 
         if (action == 'click') {
             gtag("event", "select_item", {
@@ -67,6 +67,8 @@ export class AnalyticsManual {
                 currency: "IDR",
                 items: [
                     {
+                        item_id: id,
+                        item_name: affilation,
                         affiliation: affilation,
                         price: revenue,
                         quantity: 1
