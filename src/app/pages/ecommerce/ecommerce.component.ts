@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AnalyticsGtag } from 'src/app/services/analyticsGtag';
+// import { AnalyticsGtag } from 'src/app/services/analyticsGtag';
 import { AnalyticsManual } from 'src/app/services/analyticsManual';
 import { AnalyticsUtils } from 'src/app/services/analyticsUtils';
 
@@ -14,7 +14,7 @@ export class EcommerceComponent implements OnInit {
 
   constructor(
     private analyticsUtils: AnalyticsUtils,
-    private analyticsGtag: AnalyticsGtag,
+    // private analyticsGtag: AnalyticsGtag,
     private analyticsManual: AnalyticsManual
   ) { }
 
