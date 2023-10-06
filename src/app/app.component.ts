@@ -18,9 +18,10 @@ export class AppComponent {
   }
 
   loadScript() {
+    const idMeasurement =  "G-TBX2CD8HSE"
+
     let node = document.createElement('script'); // creates the script tag
-    node.src = 'https://www.googletagmanager.com/gtag/js?id=G-TBX2CD8HSE'; // sets the source (insert url in between quotes)
-    node.type = 'text/javascript'; // set the script type
+    node.src = 'https://www.googletagmanager.com/gtag/js?id=' + idMeasurement; // sets the source (insert url in between quotes)
     node.async = true; // makes script run asynchronously
     // append to head of document
 
@@ -29,7 +30,7 @@ export class AppComponent {
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-TBX2CD8HSE');`
+    gtag('config', '`+idMeasurement+`');`
 
     document.getElementsByTagName('head')[0].appendChild(node); 
     document.getElementsByTagName('head')[0].appendChild(node2); 

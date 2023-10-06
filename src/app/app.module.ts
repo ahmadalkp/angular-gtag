@@ -17,7 +17,7 @@ import { GtagModule } from 'angular-gtag';
     BrowserModule,
     AppRoutingModule,
     Angulartics2Module.forRoot(),
-    GtagModule.forRoot({ trackingId: 'G-TBX2CD8HSE', trackPageviews: true }),
+    // GtagModule.forRoot({ trackingId: 'G-TBX2CD8HSE', trackPageviews: true }),
     FormsModule
   ],
   providers: [],
